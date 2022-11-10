@@ -1,246 +1,555 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-  <!-- <script>
-    $(document).ready(function(){
-      $('.slider').bxSlider();
-    });
-  </script> -->
-    <meta charset="UTF-8" />
-    <title>KOMPOZIT</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  </head>
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  /* Браузер сначала попробует найти шрифт локально */
+  src: local("Open Sans");
+}
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+@media (min-width: 990px) {
+  .aside {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    order: 1;
+  }
+  .main {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    order: 2;
+  }
+}
+.page {
+  max-width: 1366px;
+  margin: auto;
+  height: 5000px;
+}
 
-  <body>
-    <style>
-      body {
-         margin: 0;
-      }
-      .container {
-         display: flex;
-         flex-wrap: wrap;
-      }
-      .aside, .main {
-         width: 100%;
-         min-height: 1px;
-      }
-      @media (min-width: 992px) {
-       .aside {
-         flex: 0 0 33.333333%;
-         max-width: 33.333333%;
-         order: 1;
-       }
-       .main {
-         flex: 0 0 66.666667%;
-         max-width: 66.666667%;
-         order: 2;
-       }
-      }
-      @media (min-width: 1366px) {
-       .aside {
-         flex: 0 0 25%;
-         max-width: 25%;
-       }
-       .main {
-         flex: 0 0 75%;
-         max-width: 75%;
-       }
-      }
-      </style>
-    
-      <div class="container">
-         <main class="main">
-         </main>
-         <aside class="aside">
-         </aside>
-      </div>
-  <div class="page">
-    <div class="header">
-      <div class="Container">
-        <div class="header-line">
-          <div class="header-logo">
-            KOMPOZIT
-          </div>
-        </div>
-            <div class="logo-text">
-            Scientific and production enterprise
-            </div>
-          </div>
-          <div class="nav">
-            <ul>
-            <li><a class="nav-item1" href="@">О компании</a></li>
-          <li><a class="nav-item2" href="@">Продукция</a>
-            <ul class="second">
-              <li><a href="@">Самозмазывающиеся подшипники скольжения</a></li>
-              <li><a href="@">Магнитные материалы</a></li>
-              <li><a href="@">Спеченные металлические пористые фильтрэлементы</a></li>
-              <li><a href="@">Изделия из конструкционных материалов</a></li>
-              <li><a href="@">Инструментальные стали</a></li>
-            </ul>
-          </li>
-            <a class="nav-item3" href="@">Контакты</a>
-            <a class="nav-item4" href="@">8(800)111-11-11</a>
-          </ul>
-          </div>
-    </div>
-         <div class="slider"> 
-    <ul>
-        <li><a href="#"><img src="/images/Slider1.png" alt=""></a></li>
-        <li><a href="#"><img src="/images/Slider2.png" alt=""></a></li>
-        <li><a href="#"><img src="/images/Slider3.png" alt=""></a></li>
-        <li><a href="#"><img src="/images/Slider4.png" alt=""></a></li>
-        <li><a href="#"><img src="/images/Slider5.png" alt=""></a></li>
-        ...
-    </ul>
-         </div>
-<script src="/jquery.min.js"></script>
-<script src="/bxslider/dist/jquery.bxslider.min.js"></script>
+.header-line {
+  padding-top: 22.35px;
+  padding-left: 113px;
+  display: flex;
+  align-items: center;
+}
+.header-logo {
+  color: rgb(5, 172, 223);
+  font-weight: bold;
+  font-size: 24.58px;
+  letter-spacing: 6px;
+}
+.logo-text {
+  display: table-cell;
+  font-size: 11px;
+  padding-left: 113px;
+}
+.nav {
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 550px;
+  word-spacing: 20px;
+  margin-top: -40px;
+}
+.nav-item1 {
+  word-spacing: 2px;
+  text-decoration: none;
+  color: black;
+}
+.nav-item1:hover {
+  text-decoration: underline;
+}
+.nav-item2 {
+  text-decoration: none;
+  color: black;
+}
+.nav-item2:hover {
+  text-decoration: underline;
+}
+.nav ul {
+  list-style: none;
+}
+.nav > ul > li {
+  float: left;
+  width: 120px;
+  position: relative;
+}
+.nav li a {
+  display: block;
+  background: white;
+  color: #060a13;
+  text-decoration: none;
+}
+.nav li .second {
+  padding: 1px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-top: 10px;
+  z-index: 100;
+}
+.nav li:hover .second {
+  display: block;
+}
+.nav li li {
+  word-spacing: 1px;
+  width: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  background: white;
+}
+.nav li:hover {
+  text-decoration: underline;
+}
 
-<script>
-$(document).ready(function(){
-    $('.slider ul').bxSlider({
-        pager: true,
-        controls: true,
-        auto: true,
-        mode: 'fade',
-        pause: 10000,
-        minSlides: 1,
-        maxSlides: 1,        
-    });
-});
-</script>
-    <div class="tbody">
-      <div class="text-info1">
-        Разработка наукоемких технологий в области 
-          порошковой металлургии
-      </div>
-          <div class="text-info2">Композит является научно-инженерным центром, оказывающим услуги в области разработки и внедрения наукоемких технологий 
-              порошковой металлургии и производства технических изделий по ним.
-         </div>
-    </div>
-            <div class="production">
-            <h2>Наша продукция</h2>
-             </div>
-            <div class="tab-prod">
-         <div class="Production1">
-                <a href="#"><img  src="/images/Production1.png"></a>
-              <p>Самосмазывающиеся
-                подшипники скольжения</p>
-                <p><Button>Подробнее</Button></p>
-              </div>
-              <div class="Production2">
-                <a href="#"><img  src="/images/Production2.png"></a>
-                <p>Магнитные  материалы</p>
-                  <p><Button>Подробнее</Button></p>
-            </div>
-            <div class="Production3">
-              <a href="#"><img  src="/images/Production3.png"></a>
-              <p>Спеченные 
-                металлические пористые 
-                фильтрэлементы</p>
-                <p><Button>Подробнее</Button></p>
-                </div>
-                <div class="Production4">
-                  <a href="#"><img  src="/images/Production4.png"></a>
-                  <p>Изделия из конструкционных материалов</p>
-                  <p><Button>Подробнее</Button></p>
-                </div>
-                <div class="Production5">
-                  <a href="#"><img  src="/images/Production5.png"></a>
-                  <p>Изделия из конструкционных материалов</p>
-                  <p><Button>Подробнее</Button></p>
-                </div>
+/* .nav-item2:hover {
+  display: block;
+  position: absolute;
+  text-decoration: underline;
+} */
+.nav-item3 {
+  text-decoration: none;
+  color: white;
+  padding: 5px 14px 5px;
+  text-rendering: auto;
+  display: inline;
+  text-align: start;
+  margin: 0em;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(0, 155, 245);
+}
 
-         </div>
-             <div class="zakaz">
-              <h3>Преимущества</h3>
-             </div>
-              <div class="tab-preim">
-                <div>
-                <img src="./icons/Партии.svg" width="122px" height="89px" alt />   
-                <p>Принимаем заказы от 1 детали до массового производства</p>
-                </div>
-                  <div>
-                    <img src="./icons/Размер.svg" width="98px" height="91px" alt />
-                    <p>Вес изделий от 2гр до 2500гр</p>
-                  </div>
-                    <div>
-                    <img src="./icons/Чертежи.svg" width="137px" height="97px" alt />
-                    <p>Собственный отдел разработок и исследований</p>
-                    </div>
-                      <div>
-                    <img src="./icons/Материалы.svg" width="175px" height="105px" alt />  
-                    <p>Высококачественное сырьего российского и импортного производства</p>
-                      </div>
-              </div>
-               </table>
-              <div class="zakazchiki">
-                <h4>Наши заказчики</h4>
-              </div>
-              <div class="slider2">
-                <ul>
-                  <li><a href="#"><img class="img1" src="/images/Slide1.png" width="70px" height="93px" alt=""></a></li>
-                  <li><a href="#"><img class="img2" src="/images/Slide2.png" width="85px" height="91px" alt=""></a></li>
-                  <li><a href="#"><img class="img3" src="/images/Slide3.png" width="1311px" height="46px" alt=""></a></li>
-                  <li><a href="#"><img class="img4" src="/images/Slide4.png" width="89px" height="80px" alt=""></a></li>
-                  <li><a href="#"><img class="img5" src="/images/Slide5.png" width="97px" height="97px" alt=""></a></li>
-                  <li><a href="#"><img class="img6" src="/images/Slide6.png" width="120px" height="26px" alt=""></a></li>
-                  ...
-                </ul>
-              </div>
-              <div class="ending-line">     
-                <div class="ending-logo">
-                  KOMPOZIT
-                  <div tab class="ending-text">
-                  Scientific and production enterprise
-                  </div>
-                  <img class="sprites" src="/images/socials.png" alt="Социальные сети">
-                </div>
-                <div class="num1">
-                  <a class="numb2" href="@">8(800)111-11-11</a>
-                  <div><a class="numb2" href="@">8(800)111-11-11</a></div>
-                            </div>
-                            <div class="num2">
-                              <a class="numb2" href="@">О КОМПАНИИ</a></li>
-                              <!-- <div>О КОМПАНИИ</div> -->
-                             <div><a class="numb2" href="@">ПРОДУКЦИЯ</a></div>
-                                         </div>
-                                         <div class="num3">
-                                          <a class="numb2" href="@">ПОРОШКОВАЯ МЕТАЛЛУРГИЯ</a>
-                                          <div><a class="numb2" href="@">КОНТАКТЫ</a></div>
-                                          <div><a class="conf" href="@">Политика конфиденкциальности</a></div>
-                       </div>
-          </div>
-          
-          </div>
-              <script src="/jquery.min.js"></script>
-              <script src="/bxslider/dist/jquery.bxslider.min.js"></script>
-               
-              <script>
-              $(document).ready(function(){
-                $('.slider2 ul').bxSlider({
-                  pager: false,
-                  controls: true,
-                  auto: false,
-                  pause: 10000,
-                  minSlides: 5,
-                  maxSlides: 5,
-                  slideMargin: 150,   
-                  slideWidth: 100   
-                });
-              });
-              </script>
-  </div>
-    
+.nav-item3:hover {
+  color: aqua;
+  background-color: white;
+  border: 2px solid blue;
+}
+.nav-item4 {
+  text-decoration: none;
+  word-spacing: 2px;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 1px;
+}
+.nav-item4:hover {
+  text-decoration: underline;
+}
 
-  </body>
-</html>
+.slider {
+  /*Slider preset*/
+  /* height: 540px; */
+  overflow: hidden;
+  z-index: 1;
+}
+.slider ul {
+  margin: 0;
+  padding: 0;
+}
+.slider .bx-wrapper {
+  position: relative;
+}
+.slider .bx-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Пагинация */
+.slider .bx-pager {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  text-align: left;
+  padding-left: 180px;
+}
+.slider .bx-pager-item {
+  display: inline-block;
+  margin: 0 4px;
+  position: relative;
+  z-index: 100;
+}
+.slider .bx-pager-item a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: 999px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
+.slider .bx-pager-item a.active {
+  background: #ffe318;
+}
+.slider .bx-pager-item a:hover {
+  background: #f3e792;
+}
+
+/* Кнопки управления */
+.slider .bx-controls-direction {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.slider .bx-controls-direction a:hover {
+  filter: brightness(90%);
+}
+.slider .bx-prev {
+  background: url(https://snipp.ru/demo/193/prev.png) 0 0 no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: -15px;
+  top: 50%;
+  left: 30px;
+  overflow: hidden;
+  text-indent: 999px;
+  z-index: 1000;
+}
+.slider .bx-next {
+  background: url(https://snipp.ru/demo/193/next.png) 0 0 no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: -15px;
+  top: 50%;
+  right: 30px;
+  overflow: hidden;
+  text-indent: 999px;
+  z-index: 1000;
+}
+.bx-wrapper .bx-next:hover, .bx-wrapper .bx-next:focus { 
+  background-position: 1px 0;
+}
+.text-info1 {
+  padding-top: 81px;
+  display: flex;
+  justify-content: center;
+  font-size: px;
+  font-family: math;
+  font-size: 36px;
+  /* max-width: 719px; */
+  width: 800px;
+  margin: auto;
+  text-align: center;
+}
+.text-info2 {
+  padding: 46px;
+  display: flex;
+  justify-content: center;
+  font-family: math;
+  font-size: 18px;
+  max-width: 859px;
+  width: 1141px;
+  margin: auto;
+  text-align: justify;
+}
+.production {
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+}
+.tab-prod {
+  justify-content: center;
+  font-family: math;
+  margin: auto;
+  text-align: center;
+  height: 643px;
+  width: 1140px;
+}
+.Production1 {
+  border: 1px solid black;
+  position: absolute;
+  font-size: 18px;
+  text-align: center;
+}
+.Production2 {
+  border: 1px solid black;
+  /* position: absolute; */
+  font-size: 18px;
+  text-align: center;
+  display: inline-block;
+}
+.Production3 {
+  border: 1px solid black;
+  position: absolute;
+  font-size: 18px;
+  text-align: center;
+  display: inline-block;
+  margin-left: 15px;
+}
+.Production4 {
+  border: 1px solid black;
+  position: absolute;
+}
+.Production5 {
+  border: 1px solid black;
+  position: absolute;
+    display: inline-block;
+    padding-top: 368px;
+    padding-left: 39px;
+}
+.zakaz {
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+  padding-top: 350px;
+}
+.tab-preim {
+  letter-spacing: 150px;
+  display: flex;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 16px;
+}
+.zakazchiki {
+  padding-top: 151px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.slider2 {
+  /* padding-top: 151px; */
+  max-height: 220px;
+  overflow: hidden;
+  display: flex;
+  word-spacing: 20px;
+  padding-left: 100px;
+}
+.slider2 ul {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.slider2 ul li img {
+  width: 100%;
+  height: auto;
+}
+
+img.img1 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+}
+img.img1:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+img.img2 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+}
+img.img2:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+img.img3 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  margin-top: 25%;
+}
+img.img3:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+img.img4 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+}
+img.img4:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+img.img5 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+}
+img.img5:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+img.img6 {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  margin-top: 50%;
+}
+img.img6:hover {
+  filter: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+}
+
+.slider2 .bx-wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+.bx-viewport {
+  z-index: 1;
+}
+.slider2 .bx-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Кнопки управления */
+.slider2 .bx-controls-direction {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.slider2 .bx-controls-direction a:hover {
+  filter: brightness(90%);
+}
+.slider2 .bx-prev {
+  background: url(https://snipp.ru/demo/193/prev.png) 0 0 no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: -15px;
+  top: 50%;
+  left: -50px;
+  overflow: hidden;
+  text-indent: 999px;
+  z-index: 1000;
+}
+.slider2 .bx-next {
+  background: url(https://snipp.ru/demo/193/next.png) 0 0 no-repeat;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-top: -15px;
+  top: 50%;
+  right: -50px;
+  overflow: hidden;
+  text-indent: 999px;
+  z-index: 1000;
+}
+.bx-wrapper .bx-next:hover, .bx-wrapper .bx-next:focus { 
+  background-position: 1px 0;
+}
+.ending-logo {
+  color: rgb(5, 172, 223);
+  font-weight: bold;
+  font-size: 24.58px;
+  letter-spacing: 6px;
+  text-align: left;
+  padding-bottom: 40px;
+  padding-left: 100px;
+}
+.ending-line {
+  padding-top: 100px;
+  display: flex;
+  background-color: #c3c3c3;;
+  flex-direction: row;
+  max-height: 180px;
+  max-width: 1474px;
+  margin: 20px -59px 20px 6px;
+}
+.ending-text {
+  display: tablecell;
+  font-size: 11px;
+  letter-spacing: normal;
+  word-spacing: 3px;
+  color: #060a13;
+  text-decoration: none;
+}
+.sprites {
+  padding-top: 25px;
+}
+.num1 {
+  padding-left: 100px;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 30px;
+}
+.num1 :hover {
+  text-decoration: underline;
+}
+.num2 {
+  padding-left: 257px;
+  flex-direction: column;
+  font-size: 18x;
+  text-align: start;
+  line-height: 30px;
+  text-decoration: none;
+}
+.num2 :hover {
+  text-decoration: underline;
+}
+.num3 {
+  padding-left: 217px;
+  flex-direction: column;
+  size: 18x;
+  text-align: start;
+  line-height: 30px;
+}
+.num3 :hover {
+  text-decoration: underline;
+}
+.conf {
+  color: #999;
+  padding-top: 25px;
+  font-size: 11px;
+  text-decoration: none;
+}
+.conf :hover{
+  text-decoration: underline;
+}
+.numb2 {
+  text-decoration: none;
+  color: #060a13;
+}
 
 
 
